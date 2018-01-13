@@ -21,3 +21,11 @@ export default {
   margin-top: 60px;
 }
 </style>
+<style lang="scss" scoped>
+  #app {
+    border: 10px solid red!important;
+    div {
+      border: 10px solid blue!important;
+    }
+  }
+</style>
