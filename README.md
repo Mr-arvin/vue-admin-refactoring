@@ -1,6 +1,7 @@
 # vue-admin-refactoring
 
 > A Vue.js project, welcome to join in!
+> 解决手风琴菜单栏不出svg-icon图标，参考http://blog.csdn.net/github_35631540/article/details/78818919
 
 ## Build Setup
 

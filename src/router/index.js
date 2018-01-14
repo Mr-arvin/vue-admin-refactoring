@@ -21,19 +21,9 @@ import Layout from '../views/layout/Layout'
   }
 **/
 
-import Index from '../views/login/index'
-import Error404 from '../views/error/404'
-import Error401 from '../views/error/401'
-
-import Dashboard_index from '../views/dashboard/index'
-import Table_index from '../views/table/index'
-import Tree_index from '../views/tree/index'
-import Form_index from '../views/form/index'
-
 export const constantRouterMap = [
-  { path: '/login', component: Index, hidden: true },
-  { path: '/404', component: Error404, hidden: true },
-  { path: '/401', component: Error401, hidden: true },
+  { path: '/login', component: _import('login/index'), hidden: true },
+  { path: '/404', component: _import('error/404'), hidden: true },
 
   {
     path: '/',
@@ -43,7 +33,7 @@ export const constantRouterMap = [
     hidden: true,
     children: [{
       path: 'dashboard',
-      component: Dashboard_index
+      component: _import('dashboard/index')
     }]
   },
 
@@ -52,19 +42,19 @@ export const constantRouterMap = [
     component: Layout,
     redirect: '/example/table',
     name: 'Example',
-    meta: { title: '案例', icon: 'example' },
+    meta: { title: 'Example', icon: 'example' },
     children: [
       {
         path: 'table',
         name: 'Table',
-        component: Table_index,
-        meta: { title: '表格', icon: 'table' }
+        component: _import('table/index'),
+        meta: { title: 'Table', icon: 'table' }
       },
       {
         path: 'tree',
         name: 'Tree',
-        component: Tree_index,
-        meta: { title: '树状图', icon: 'tree' }
+        component: _import('tree/index'),
+        meta: { title: 'Tree', icon: 'tree' }
       }
     ]
   },
@@ -76,8 +66,8 @@ export const constantRouterMap = [
       {
         path: 'index',
         name: 'Form',
-        component: Form_index,
-        meta: { title: '表单', icon: 'form' }
+        component: _import('form/index'),
+        meta: { title: 'Form', icon: 'form' }
       }
     ]
   },
