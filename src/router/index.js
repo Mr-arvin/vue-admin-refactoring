@@ -24,7 +24,7 @@ import Layout from '../views/layout/Layout'
 export const constantRouterMap = [
   { path: '/login', component: _import('login/index'), hidden: true },
   { path: '/404', component: _import('error/404'), hidden: true },
-
+  { path: '/401', component: _import('error/401'), hidden: true },
   {
     path: '/',
     component: Layout,
@@ -33,10 +33,22 @@ export const constantRouterMap = [
     hidden: true,
     children: [{
       path: 'dashboard',
-      component: _import('dashboard/index')
+      component: _import('dashboard/index'),
+      mame: 'dashboard',
+      meta: { title: 'dashboard', icon: 'dashboard', noCache: true }
     }]
   },
-
+  {
+    path: '/documentation',
+    component: Layout,
+    redirct: '/documentation/index',
+    children: [{
+      path: 'index',
+      component: _import('documentation/index'),
+      name: 'documentation',
+      meta: { title: 'Doc', icon: 'documentation', noCache: true }
+    }]
+  },
   {
     path: '/example',
     component: Layout,
