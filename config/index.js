@@ -1,4 +1,3 @@
-'use strict'
 // Template version: 1.2.8
 // see http://vuejs-templates.github.io/webpack for documentation.
 
