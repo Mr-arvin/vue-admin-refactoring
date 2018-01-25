@@ -98,7 +98,27 @@ export const asyncRouterMap = [
       }
     ]
   },
-
+  {
+    path: '/chart',
+    component: Layout,
+    redirect: '/chart/line',
+    name: 'Chart',
+    meta: { title: 'Chart', icon: 'chart' },
+    children: [
+      {
+        path: 'line',
+        name: 'line',
+        component: _import('chart/line'),
+        meta: { title: 'line'}
+      },
+      {
+        path: 'keyboard',
+        name: 'keyboard',
+        component: _import('chart/keyboard'),
+        meta: { title: 'keyboard'}
+      }
+    ]
+  },
    {
     path: '/error-log',
     component: Layout,
