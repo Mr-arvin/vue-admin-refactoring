@@ -28,6 +28,8 @@ export default {
     dragTable: 'Drag Table',
     inlineEditTable: 'Inline Edit',
     complexTable: 'Complex Table',
+    treeTable: 'treeTable',
+    customTreeTable: 'Custom TreeTable',
     tab: 'Tab',
     form: 'Form',
     createForm: 'Create Form',
@@ -40,7 +42,8 @@ export default {
     exportExcel: 'Export Excel',
     selectExcel: 'Export Selected',
     uploadExcel: 'Upload Excel',
-    exportZip: 'Zip',
+    zip: 'Zip',
+    exportZip: 'Export Zip',
     theme: 'Theme',
     clipboardDemo: 'Clipboard',
     i18n: 'I18n'

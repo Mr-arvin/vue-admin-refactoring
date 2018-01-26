@@ -52,7 +52,7 @@ export const constantRouterMap = [
       path: 'index',
       component: _import('documentation/index'),
       name: 'documentation',
-      meta: { title: 'Doc', icon: 'documentation', noCache: true }
+      meta: { title: 'documentation', icon: 'documentation', noCache: true }
     }]
   },
 ]
@@ -69,7 +69,7 @@ export const asyncRouterMap = [
     component: Layout,
     redirect: '/example/table',
     name: 'Example',
-    meta: { title: 'Example', icon: 'example' },
+    meta: { title: 'example', icon: 'example' },
     children: [
       {
         path: 'table',
@@ -81,7 +81,7 @@ export const asyncRouterMap = [
         path: 'tree',
         name: 'Tree',
         component: _import('tree/index'),
-        meta: { title: 'Tree', icon: 'tree' }
+        meta: { title: 'treeTable', icon: 'tree' }
       }
     ]
   },
@@ -94,7 +94,7 @@ export const asyncRouterMap = [
         path: 'index',
         name: 'Form',
         component: _import('form/index'),
-        meta: { title: 'Form', icon: 'form' }
+        meta: { title: 'form', icon: 'form' }
       }
     ]
   },
@@ -103,19 +103,19 @@ export const asyncRouterMap = [
     component: Layout,
     redirect: '/chart/line',
     name: 'Chart',
-    meta: { title: 'Chart', icon: 'chart' },
+    meta: { title: 'charts', icon: 'chart' },
     children: [
       {
         path: 'line',
         name: 'line',
         component: _import('chart/line'),
-        meta: { title: 'line'}
+        meta: { title: 'lineChart'}
       },
       {
         path: 'keyboard',
         name: 'keyboard',
         component: _import('chart/keyboard'),
-        meta: { title: 'keyboard'}
+        meta: { title: 'keyboardChart'}
       }
     ]
   },

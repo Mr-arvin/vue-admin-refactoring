@@ -7,6 +7,7 @@
       <el-tooltip effect="dark" :content="$t('navbar.screenfull')" placement="bottom">
         <screenfull class="screenfull right-menu-item"></screenfull>
       </el-tooltip>
+      <lang-select class="international right-menu-item"></lang-select>
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
           <img class="user-avatar" :src="avatar+'?imageView2/1/w/80/h/80'">
@@ -34,13 +35,15 @@ import Breadcrumb from '@/components/Breadcrumb'
 import Hamburger from '@/components/Hamburger'
 import ErrorLog from '@/components/ErrorLog'
 import Screenfull from '@/components/Screenfull'
+import LangSelect from '@/components/LangSelect'
 
 export default {
   components: {
     Breadcrumb,
     Hamburger,
     ErrorLog,
-    Screenfull
+    Screenfull,
+    LangSelect
   },
   computed: {
     ...mapGetters([
@@ -90,17 +93,15 @@ export default {
       margin: 0 8px;
     }
     .screenfull {
-      position: absolute;
-      right: 90px;
-      top: 14px;
       height: 20px;
-      color: red;
+    }
+    .international{
+      vertical-align: top;
+      height: 20px;
     }
     .avatar-container {
       height: 50px;
-      display: inline-block;
-      position: absolute;
-      right: 35px;
+      margin-right: 30px;
       .avatar-wrapper {
         cursor: pointer;
         margin-top: 5px;
