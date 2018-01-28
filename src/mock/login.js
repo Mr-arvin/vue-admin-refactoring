@@ -25,6 +25,7 @@ export default {
   getUserInfo: config => {
     const { token } = param2Obj(config.url)
     if (userMap[token]) {
+      console.log(userMap[token]) //判断是啥账户
       return userMap[token]
     } else {
       return false

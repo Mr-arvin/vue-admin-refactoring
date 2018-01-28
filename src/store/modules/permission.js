@@ -5,7 +5,7 @@ import { asyncRouterMap, constantRouterMap } from '@/router'
  * @param roles
  * @param route
  */
-function hasPermission(roles, route) {
+function hasPermission(roles, route) {  
   if (route.meta && route.meta.roles) {
     return roles.some(role => route.meta.roles.indexOf(role) >= 0)
   } else {
@@ -38,6 +38,10 @@ const permission = {
   },
   mutations: {
     SET_ROUTERS: (state, routers) => {
+      // console.log(state)
+      // console.log(routers)
+      // routers = []
+      // routers 是路由器内容
       state.addRouters = routers
       state.routers = constantRouterMap.concat(routers)
     }
