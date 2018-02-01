@@ -7,12 +7,12 @@
         </el-form-item>
         <el-form-item label="事件类型">
             <el-select v-model="formInline.type" placeholder="事件类型">
-            <el-option v-for="(item,index) in formData.sjlxData" :label="item.label" :value="item.value"></el-option>
+            <el-option v-for="(item) in formData.sjlxData" :label="item.label" :key="item.label"  :value="item.value"></el-option>
             </el-select>
         </el-form-item>
         <el-form-item label="事件结果">
             <el-select v-model="formInline.result" placeholder="事件结果">
-            <el-option v-for="(item,index) in formData.sjjgData" :label="item.label" :value="item.value"></el-option>
+            <el-option v-for="(item) in formData.sjjgData" :label="item.label" :key="item.label"  :value="item.value"></el-option>
             </el-select>
         </el-form-item>
         <el-form-item>
