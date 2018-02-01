@@ -81,6 +81,16 @@ export const asyncRouterMap = [
           { path: 'test01', component: _import('example/table/test01'), name: 'test01', meta: { title: 'test01' }},
           { path: 'test02', component: _import('example/table/test02'), name: 'test02', meta: { title: 'test02' }},
         ]
+      },
+      {
+        path: '/example/table',
+        component: _import('example/table/index'),
+        redirect: 'noredirect',
+        name: 'test03',
+        meta: { title: 'test03', icon: 'table', roles: ['admin']  },
+        children: [
+          { path: 'test03', component: _import('example/table/test03'), name: 'test03', meta: { title: 'test03' , icon: 'table'}},
+        ]
       }
     ]
   },

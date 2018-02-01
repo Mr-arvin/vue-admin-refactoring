@@ -2,6 +2,7 @@ export default {
   route: {
     test01: 'test01页',
     test02: 'test02页',
+    test03: 'test03页',
     dashboard: '首页',
     introduction: '简述',
     documentation: '文档',
@@ -25,7 +26,7 @@ export default {
     lineChart: '折线图',
     mixChart: '混合图表',
     example: '综合实例',
-    Table: 'Table',
+    Table: '表格',
     dynamicTable: '动态Table',
     dragTable: '拖拽Table',
     inlineEditTable: 'Table内编辑',

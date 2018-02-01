@@ -1,9 +1,9 @@
 <template>
   <div class="app-container">
     <el-table
-    :data="tableData3"
+    :data="tableData4"
     style="width: 100%"
-    height="250">
+    max-height="250">
     <el-table-column
       fixed
       prop="date"
@@ -35,15 +35,33 @@
       label="邮编"
       width="120">
     </el-table-column>
+    <el-table-column
+      fixed="right"
+      label="操作"
+      width="120">
+      <template slot-scope="scope">
+        <el-button
+          @click.native.prevent="deleteRow(scope.$index, tableData4)"
+          type="text"
+          size="small">
+          移除
+        </el-button>
+      </template>
+    </el-table-column>
   </el-table>
   </div>
 </template>
 
 <script>
   export default {
+    methods: {
+      deleteRow(index, rows) {
+        rows.splice(index, 1);
+      }
+    },
     data() {
       return {
-        tableData3: [{
+        tableData4: [{
           date: '2016-05-03',
           name: '王小虎',
           province: '上海',
