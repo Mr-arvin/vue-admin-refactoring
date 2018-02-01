@@ -63,7 +63,27 @@ export default new Router({
   routes: constantRouterMap
 })
 
-export const asyncRouterMap = [  
+export const asyncRouterMap = [ 
+  {
+    path: '/platformrun',
+    component: Layout,
+    redirect: '/platformrun/index',
+    name: 'platformrun',
+    meta: { title: 'platformrun', icon: 'example'},
+    children: [
+      {
+        path: '/platformrun/index',
+        component: _import('platformrun/index'),
+        redirect: 'noredirect',
+        name: 'dolog',
+        meta: { title: 'dolog', icon: 'table', roles: ['admin']  },
+        children: [
+          { path: 'businessData', component: _import('platformrun/dolog/businessData'), name: 'businessData', meta: { title: 'businessData' }},
+          { path: 'doplatform', component: _import('platformrun/dolog/doplatform'), name: 'doplatform', meta: { title: 'doplatform' }},
+        ]
+      }
+    ]
+  }, 
   {
     path: '/example',
     component: Layout,
