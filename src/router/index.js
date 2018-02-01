@@ -67,16 +67,16 @@ export const asyncRouterMap = [
   {
     path: '/example',
     component: Layout,
-    redirect: '/example/table',
-    name: 'Example',
-    meta: { title: 'example', icon: 'example' , roles: ['admin','editor']},
+    redirect: '/example/table/index',
+    name: 'example',
+    meta: { title: 'example', icon: 'example'},
     children: [
       {
         path: '/example/table',
-        name: 'Table',
         component: _import('example/table/index'),
-        meta: { title: 'Table', icon: 'table', roles: ['admin']  },
         redirect: 'noredirect',
+        name: 'Table',
+        meta: { title: 'Table', icon: 'table', roles: ['admin']  },
         children: [
           { path: 'test01', component: _import('example/table/test01'), name: 'test01', meta: { title: 'test01' }},
           { path: 'test02', component: _import('example/table/test02'), name: 'test02', meta: { title: 'test02' }},
