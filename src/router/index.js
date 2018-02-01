@@ -72,7 +72,7 @@ export const asyncRouterMap = [
     meta: { title: 'example', icon: 'example'},
     children: [
       {
-        path: '/example/table',
+        path: '/example/table/index',
         component: _import('example/table/index'),
         redirect: 'noredirect',
         name: 'Table',
@@ -83,10 +83,9 @@ export const asyncRouterMap = [
         ]
       },
       {
-        path: '/example/table',
+        path: '/example/table/test03',
         component: _import('example/table/index'),
         redirect: 'noredirect',
-        name: 'test03',
         meta: { title: 'test03', icon: 'table', roles: ['admin']  },
         children: [
           { path: 'test03', component: _import('example/table/test03'), name: 'test03', meta: { title: 'test03' , icon: 'table'}},
@@ -96,7 +95,7 @@ export const asyncRouterMap = [
   },
   {
     path: '/tree',
-    name: 'Tree',
+    name: 'tree',
     component: Layout,
     meta: { roles: ['admin','editor']  },
     children: [
