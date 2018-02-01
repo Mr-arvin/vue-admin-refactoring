@@ -72,20 +72,32 @@ export const asyncRouterMap = [
     meta: { title: 'example', icon: 'example' , roles: ['admin','editor']},
     children: [
       {
-        path: 'table',
+        path: '/example/table',
         name: 'Table',
-        component: _import('table/index'),
-        meta: { title: 'Table', icon: 'table', roles: ['admin']  }
-      },
-      {
-        path: 'tree',
-        name: 'Tree',
-        component: _import('tree/index'),
-        meta: { title: 'treeTable', icon: 'tree', roles: ['admin','editor']  }
+        component: _import('example/table/index'),
+        meta: { title: 'Table', icon: 'table', roles: ['admin']  },
+        redirect: 'noredirect',
+        children: [
+          { path: 'test01', component: _import('example/table/test01'), name: 'test01', meta: { title: 'test01' }},
+          { path: 'test02', component: _import('example/table/test02'), name: 'test02', meta: { title: 'test02' }},
+        ]
       }
     ]
   },
-
+  {
+    path: '/tree',
+    name: 'Tree',
+    component: Layout,
+    meta: { roles: ['admin','editor']  },
+    children: [
+      {
+        path: 'index',
+        name: 'Tree',
+        component: _import('tree/index'),
+        meta: { title: 'treeTable', icon: 'tree' }
+      }
+    ]
+  },
   {
     path: '/form',
     component: Layout,

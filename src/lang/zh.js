@@ -1,5 +1,7 @@
 export default {
   route: {
+    test01: 'test01页',
+    test02: 'test02页',
     dashboard: '首页',
     introduction: '简述',
     documentation: '文档',
