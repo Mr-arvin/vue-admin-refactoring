@@ -15,6 +15,10 @@ html {
   box-sizing: border-box;
 }
 
+html,body {
+    background-color: #f0f2f5!important;
+}
+
 *,
 *:before,
 *:after {
@@ -51,11 +55,15 @@ a:hover {
 
 //main-container全局样式
 .app-main{
-  min-height: 100%
+  position: relative; 
+  min-height: 100%;
+  //使全屏的时候背景
+  background-color: #f0f2f5;
 }
 
 .app-container {
   padding: 20px;
+  background-color: #ffffff;
 }
 
 //分页样式
