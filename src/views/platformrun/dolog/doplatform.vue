@@ -16,7 +16,7 @@
             </el-select>
         </el-form-item>
         <el-form-item>
-            <el-button type="primary" @click="onSubmit">查询</el-button>
+            <el-button type="primary" v-waves @click="onSubmit">查询</el-button>
         </el-form-item>
         </el-form>
       </div>
@@ -50,13 +50,15 @@
 
 <script>
 import { fetchList } from '@/api/article';
+import waves from '@/directive/waves';
 export default {
+  directives: {
+    waves
+  },
   data() {
     return {
       formData: {
-        sjmcData: [
-
-        ],
+        sjmcData: [],
         sjlxData: [
           { label: '新增', value: 'add' },
           { label: '修改', value: 'edit' },
@@ -74,7 +76,8 @@ export default {
       },
       tableData: [],
       list: null,
-      formInline: { // 提交的表单
+      formInline: {
+        // 提交的表单
         name: '',
         type: '',
         result: ''
@@ -90,9 +93,7 @@ export default {
       }
     };
   },
-  filters: {
-
-  },
+  filters: {},
   created() {
     this.getList();
   },

@@ -13,7 +13,7 @@
             </el-select>
         </el-form-item>
         <el-form-item>
-            <el-button type="primary" @click="onSubmit">查询</el-button>
+            <el-button type="primary" v-waves @click="onSubmit">查询</el-button>
         </el-form-item>
         </el-form>
       </div>
@@ -41,36 +41,37 @@
 </template>
 
 <script>
-import { fetchList } from '@/api/article'
-const defaultFormThead = ['apple', 'banana']
-  export default {
-    data() {
-      return {
-        tableData: [],
-        list: null,
-        formInline: {
-          user: '',
-          region: ''
-        }
+import { fetchList } from '@/api/article';
+import waves from '@/directive/waves';
+export default {
+  directives: {
+    waves
+  },
+  data() {
+    return {
+      tableData: [],
+      list: null,
+      formInline: {
+        user: '',
+        region: ''
       }
+    };
+  },
+  filters: {},
+  created() {
+    this.getList();
+  },
+  methods: {
+    getList() {
+      fetchList(this.listQuery).then(response => {
+        this.list = response.data.items;
+        console.log(this.list);
+        this.tableData = this.list;
+      });
     },
-    filters: {
-
-    },
-    created(){
-        this.getList()
-    },
-    methods: {
-        getList() {
-            fetchList(this.listQuery).then(response => {
-                this.list = response.data.items
-                console.log(this.list)                
-                this.tableData = this.list
-            })
-        },
-        onSubmit() {
-            console.log('submit!');
-        }
+    onSubmit() {
+      console.log('submit!');
     }
   }
+};
 </script>
