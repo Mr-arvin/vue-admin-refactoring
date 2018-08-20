@@ -40,60 +40,86 @@
         label="地址">
         </el-table-column>
     </el-table>
+    <div class="pagination-container">
+      <el-pagination align=right background @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page.sync="listQuery.page"
+                     :page-sizes="[10,20,30, 50]" :page-size="listQuery.limit" layout="total, sizes, prev, pager, next, jumper" :total="total">
+      </el-pagination>
+    </div>
   </div>
 </template>
 
 <script>
-import { fetchList } from '@/api/article'
-const defaultFormThead = ['apple', 'banana']
-  export default {
-    data() {
-      return {
-        formData: {
-            sjmcData: [
-                
-            ],
-            sjlxData: [                   
-                {label:'新增',value:'add'},
-                {label:'修改',value:'edit'},
-                {label:'删除',value:'deletes'},
-                {label:'登录',value:'login'},
-                {label:'注销',value:'logout'},
-                {label:'导入',value:'insert'},
-                {label:'导出',value:'exports'},          
-            ],
-            sjjgData: [
-                {label:'不限',value:'nothing'},
-                {label:'成功',value:'success'},
-                {label:'失败',value:'failed'}  
-            ]
-        },
-        tableData: [],
-        list: null,
-        formInline: { //提交的表单
-          name: '',
-          type: '',
-          result: ''
-        }
-      }
-    },
-    filters: {
+import { fetchList } from '@/api/article';
+export default {
+  data() {
+    return {
+      formData: {
+        sjmcData: [
 
+        ],
+        sjlxData: [
+          { label: '新增', value: 'add' },
+          { label: '修改', value: 'edit' },
+          { label: '删除', value: 'deletes' },
+          { label: '登录', value: 'login' },
+          { label: '注销', value: 'logout' },
+          { label: '导入', value: 'insert' },
+          { label: '导出', value: 'exports' }
+        ],
+        sjjgData: [
+          { label: '不限', value: 'nothing' },
+          { label: '成功', value: 'success' },
+          { label: '失败', value: 'failed' }
+        ]
+      },
+      tableData: [],
+      list: null,
+      formInline: { // 提交的表单
+        name: '',
+        type: '',
+        result: ''
+      },
+      total: null,
+      listQuery: {
+        page: 1,
+        limit: 20,
+        importance: undefined,
+        title: undefined,
+        type: undefined,
+        sort: '+id'
+      }
+    };
+  },
+  filters: {
+
+  },
+  created() {
+    this.getList();
+  },
+  methods: {
+    getList() {
+      fetchList(this.listQuery).then(response => {
+        this.list = response.data.items;
+        this.total = response.data.total;
+        console.log(this.list);
+        this.tableData = this.list;
+      });
     },
-    created(){
-        this.getList()
+    handleFilter() {
+      this.listQuery.page = 1;
+      this.getList();
     },
-    methods: {
-        getList() {
-            fetchList(this.listQuery).then(response => {
-                this.list = response.data.items
-                console.log(this.list)                
-                this.tableData = this.list
-            })
-        },
-        onSubmit() {
-            console.log('submit!');
-        }
+    handleSizeChange(val) {
+      this.listQuery.limit = val;
+      this.getList();
+    },
+    handleCurrentChange(val) {
+      this.listQuery.page = val;
+      this.getList();
+    },
+    onSubmit() {
+      console.log('submit!');
     }
   }
+};
 </script>
