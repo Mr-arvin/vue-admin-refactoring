@@ -62,11 +62,10 @@ export const asyncRouterMap = [
       {
         path: '/platformrun/index',
         component: _import('platformrun/index'),
-        redirect: 'businessData',
+        redirect: 'doplatform',
         name: 'dolog',
         meta: { title: 'dolog', icon: 'table', roles: ['admin'] },
         children: [
-          { path: 'businessData', component: _import('platformrun/dolog/businessData'), name: 'businessData', meta: { title: 'businessData' }},
           { path: 'doplatform', component: _import('platformrun/dolog/doplatform'), name: 'doplatform', meta: { title: 'doplatform' }}
         ]
       }
