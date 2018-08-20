@@ -1,15 +1,14 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+import Vue from 'vue';
+import Router from 'vue-router';
 
-const _import = require('./_import_' + process.env.NODE_ENV)
+const _import = require('./_import_' + process.env.NODE_ENV);
 // in development-env not use lazy-loading, because lazy-loading too many pages will cause webpack hot update too slow. so only in production use lazy-loading;
 // detail: https://panjiachen.github.io/vue-element-admin-site/#/lazy-loading
 
-Vue.use(Router)
+Vue.use(Router);
 
 /* Layout */
-import Layout from '../views/layout/Layout'
+import Layout from '../views/layout/Layout';
 
 /** note: submenu only apppear when children.length>=1
 *   detail see  https://panjiachen.github.io/vue-element-admin-site/#/router-and-nav?id=sidebar
@@ -43,25 +42,14 @@ export const constantRouterMap = [
       mame: 'dashboard',
       meta: { title: 'dashboard', icon: 'dashboard', noCache: true }
     }]
-  },
-  {
-    path: '/documentation',
-    component: Layout,
-    redirct: '/documentation/index',
-    children: [{
-      path: 'index',
-      component: _import('documentation/index'),
-      name: 'documentation',
-      meta: { title: 'documentation', icon: 'documentation', noCache: true }
-    }]
-  },
-]
+  }
+];
 
 export default new Router({
   // mode: 'history', // require service support
   scrollBehavior: () => ({ y: 0 }),
   routes: constantRouterMap
-})
+});
 
 export const asyncRouterMap = [
   {
@@ -69,17 +57,17 @@ export const asyncRouterMap = [
     component: Layout,
     redirect: 'businessData',
     name: 'platformrun',
-    meta: { title: 'platformrun', icon: 'example'},
+    meta: { title: 'platformrun', icon: 'example' },
     children: [
       {
         path: '/platformrun/index',
         component: _import('platformrun/index'),
         redirect: 'businessData',
         name: 'dolog',
-        meta: { title: 'dolog', icon: 'table', roles: ['admin']  },
+        meta: { title: 'dolog', icon: 'table', roles: ['admin'] },
         children: [
           { path: 'businessData', component: _import('platformrun/dolog/businessData'), name: 'businessData', meta: { title: 'businessData' }},
-          { path: 'doplatform', component: _import('platformrun/dolog/doplatform'), name: 'doplatform', meta: { title: 'doplatform' }},
+          { path: 'doplatform', component: _import('platformrun/dolog/doplatform'), name: 'doplatform', meta: { title: 'doplatform' }}
         ]
       }
     ]
@@ -89,26 +77,26 @@ export const asyncRouterMap = [
     component: Layout,
     redirect: '/example/table/index',
     name: 'example',
-    meta: { title: 'example', icon: 'example'},
+    meta: { title: 'example', icon: 'example' },
     children: [
       {
         path: '/example/table/index',
         component: _import('example/table/index'),
         redirect: 'noredirect',
         name: 'Table',
-        meta: { title: 'Table', icon: 'table', roles: ['admin']  },
+        meta: { title: 'Table', icon: 'table', roles: ['admin'] },
         children: [
           { path: 'test01', component: _import('example/table/test01'), name: 'test01', meta: { title: 'test01' }},
-          { path: 'test02', component: _import('example/table/test02'), name: 'test02', meta: { title: 'test02' }},
+          { path: 'test02', component: _import('example/table/test02'), name: 'test02', meta: { title: 'test02' }}
         ]
       },
       {
         path: '/example/table/test03',
         component: _import('example/table/index'),
         redirect: 'noredirect',
-        meta: { title: 'test03', icon: 'table', roles: ['admin']  },
+        meta: { title: 'test03', icon: 'table', roles: ['admin'] },
         children: [
-          { path: 'test03', component: _import('example/table/test03'), name: 'test03', meta: { title: 'test03' , icon: 'table'}},
+          { path: 'test03', component: _import('example/table/test03'), name: 'test03', meta: { title: 'test03', icon: 'table' }}
         ]
       }
     ]
@@ -117,7 +105,7 @@ export const asyncRouterMap = [
     path: '/tree',
     name: 'tree',
     component: Layout,
-    meta: { roles: ['admin','editor']  },
+    meta: { roles: ['admin', 'editor'] },
     children: [
       {
         path: 'index',
@@ -145,23 +133,23 @@ export const asyncRouterMap = [
     component: Layout,
     redirect: '/chart/line',
     name: 'Chart',
-    meta: { title: 'charts', icon: 'chart', roles: ['admin','visitor'] },
+    meta: { title: 'charts', icon: 'chart', roles: ['admin', 'visitor'] },
     children: [
       {
         path: 'line',
         name: 'line',
         component: _import('chart/line'),
-        meta: { title: 'lineChart'}
+        meta: { title: 'lineChart' }
       },
       {
         path: 'keyboard',
         name: 'keyboard',
         component: _import('chart/keyboard'),
-        meta: { title: 'keyboardChart'}
+        meta: { title: 'keyboardChart' }
       }
     ]
   },
-   {
+  {
     path: '/error-log',
     component: Layout,
     redirect: 'noredirect',
@@ -169,5 +157,5 @@ export const asyncRouterMap = [
   },
 
   { path: '*', redirect: '/404', hidden: true }
-]
+];
 
