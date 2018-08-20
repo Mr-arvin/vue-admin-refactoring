@@ -3,27 +3,29 @@
     <sidebar class="sidebar-container"></sidebar>
     <div class="main-container">
       <navbar></navbar>
+      <tags-view></tags-view>
       <app-main></app-main>
     </div>
   </div>
 </template>
 
 <script>
-import { Navbar, Sidebar, AppMain } from '@/views/layout/components'
+import { Navbar, Sidebar, AppMain, TagsView } from '@/views/layout/components';
 
 export default {
   name: 'layout',
   components: {
     Navbar,
     Sidebar,
+    TagsView,
     AppMain
   },
   computed: {
     sidebar() {
-      return this.$store.state.app.sidebar
+      return this.$store.state.app.sidebar;
     }
   }
-}
+};
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>

@@ -4,6 +4,10 @@
 @import './element-ui.scss';
 @import './sidebar.scss';
 
+html,body {
+    background-color: #f0f2f5!important;
+}
+
 body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -13,10 +17,6 @@ body {
 
 html {
   box-sizing: border-box;
-}
-
-html,body {
-    background-color: #f0f2f5!important;
 }
 
 *,
