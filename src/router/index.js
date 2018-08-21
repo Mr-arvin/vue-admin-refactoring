@@ -3,12 +3,16 @@ import Router from 'vue-router';
 
 const _import = require('./_import_' + process.env.NODE_ENV);
 // in development-env not use lazy-loading, because lazy-loading too many pages will cause webpack hot update too slow. so only in production use lazy-loading;
+// detail: https://panjiachen.github.io/vue-element-admin-site/#/lazy-loading
+
 Vue.use(Router);
 
 /* Layout */
 import Layout from '../views/layout/Layout';
 
-/* note: submenu only apppear when children.length>=1 */
+/** note: submenu only apppear when children.length>=1
+*   detail see  https://panjiachen.github.io/vue-element-admin-site/#/router-and-nav?id=sidebar
+**/
 
 /**
 * hidden: true                   if `hidden:true` will not show in the sidebar(default is false)
@@ -27,17 +31,17 @@ export const constantRouterMap = [
   { path: '/404', component: _import('error/404'), hidden: true },
   { path: '/401', component: _import('error/401'), hidden: true },
   {
-    path: '/',
+    path: '',
     component: Layout,
-    redirect: '/dashboard',
-    name: 'Dashboard',
-    hidden: true,
-    children: [{
-      path: 'dashboard',
-      component: _import('dashboard/index'),
-      mame: 'dashboard',
-      meta: { title: 'dashboard', icon: 'dashboard', noCache: true }
-    }]
+    redirect: 'home',
+    children: [
+      {
+        path: 'home',
+        name: 'home',
+        component: _import('home/index'),
+        meta: { title: 'home', icon: 'example', noCache: true }
+      }
+    ]
   }
 ];
 
@@ -51,17 +55,18 @@ export const asyncRouterMap = [
   {
     path: '/platformrun',
     component: Layout,
-    redirect: 'businessData',
+    redirect: 'noredirect',
     name: 'platformrun',
     meta: { title: 'platformrun', icon: 'example' },
     children: [
       {
         path: '/platformrun/index',
         component: _import('platformrun/index'),
-        redirect: 'doplatform',
+        redirect: 'noredirect',
         name: 'dolog',
         meta: { title: 'dolog', icon: 'table', roles: ['admin'] },
         children: [
+          { path: 'businessData', component: _import('platformrun/dolog/businessData'), name: 'businessData', meta: { title: 'businessData' }},
           { path: 'doplatform', component: _import('platformrun/dolog/doplatform'), name: 'doplatform', meta: { title: 'doplatform' }}
         ]
       }

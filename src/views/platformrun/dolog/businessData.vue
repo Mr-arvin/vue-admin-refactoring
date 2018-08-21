@@ -1,9 +1,9 @@
 <template>
-  <div class="app-container calendar-list-container">
+  <div class="app-container">
     <div class="filter-container">
       <el-form :inline="true" :model="formInline" class="demo-form-inline">
-        <el-form-item label="创始人">
-          <el-input v-model="formInline.name" placeholder="创始人"></el-input>
+        <el-form-item label="事件名称">
+          <el-input v-model="formInline.name" placeholder="事件名称"></el-input>
         </el-form-item>
         <el-form-item label="事件类型">
           <el-select v-model="formInline.type" placeholder="事件类型">
@@ -104,7 +104,6 @@
     methods: {
       getList() {
         fetchList(this.listQuery).then(response => {
-          console.log(response);
           this.list = response.data.items;
           this.total = response.data.total;
           this.tableData = this.list;

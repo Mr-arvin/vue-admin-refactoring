@@ -137,9 +137,9 @@
           margin-left: 15px;
         }
         &.active {
-          background-color: #3f5673;
+          background-color: #42b983;
           color: #fff;
-          border-color: #3f5673;
+          border-color: #42b983;
           &::before {
             content: '';
             background: #fff;
@@ -165,7 +165,6 @@
       font-weight: 400;
       color: #333;
       box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, .3);
-      z-index: 100;
       li {
         margin: 0;
         padding: 7px 16px;
@@ -193,10 +192,10 @@
         &:before {
           transform: scale(.6);
           display: inline-block;
-          vertical-align: -3px;          
+          vertical-align: -3px;
         }
         &:hover {
-          background-color: #7996a9;
+          background-color: #b4bccc;
           color: #fff;
         }
       }

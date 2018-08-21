@@ -11,15 +11,14 @@
 
 <script>
 import { Navbar, Sidebar, AppMain, TagsView } from '@/views/layout/components';
-import Breadcrumb from '@/components/Breadcrumb';
+
 export default {
   name: 'layout',
   components: {
     Navbar,
     Sidebar,
     AppMain,
-    TagsView,
-    Breadcrumb
+    TagsView
   },
   computed: {
     sidebar() {

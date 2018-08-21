@@ -3,6 +3,7 @@ export default {
     test01: 'test01页',
     test02: 'test02页',
     test03: 'test03页',
+    home: '主页',
     platformrun: '平台运维',
     dolog: '操作日志',
     businessData: '业务数据查询',
@@ -133,4 +134,4 @@ export default {
     documentation: '换肤文档',
     tips: 'Tips: 它区别于 navbar 上的 theme-pick, 是两种不同的换肤方法，各自有不同的应用场景，具体请参考文档。'
   }
-}
+};

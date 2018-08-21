@@ -3,6 +3,7 @@ export default {
     test01: 'test01',
     test02: 'test02',
     test03: 'test03',
+    home: 'home',
     platformrun: 'Platformrun',
     dolog: 'Dolog',
     businessData: 'BusinessData',
@@ -133,4 +134,4 @@ export default {
     documentation: 'Theme documentation',
     tips: 'Tips: It is different from the theme-pick on the navbar is two different skinning methods, each with different application scenarios. Refer to the documentation for details.'
   }
-}
+};
